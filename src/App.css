@@ -74,3 +74,11 @@ nav.navbar .navbar-nav .nav-link.active {
 span.navbar-text {
     display: flex;
 }
+
+
+.main-login {
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+    background-image: linear-gradient(to right, #4dd6b6, rgba(244, 252, 252, 0.904))
+}

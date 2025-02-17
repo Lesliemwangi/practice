@@ -7,7 +7,7 @@ function Login() {
       <div>Login Form</div>
       <button onClick={() => console.log('login')}>Login</button>
       <div>Forgot Password?</div>
-      <div>Don't have an account?</div>
+      <div>Do not have an account?</div>
       <button onClick={() => console.log('sign up')}>Sign Up</button>
       </div>
     </div>

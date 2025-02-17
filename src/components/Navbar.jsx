@@ -1,123 +1,127 @@
-import { useState, useEffect } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-function MyNavbar() {
-  const [activeLink, setActiveLink] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  const menuItems = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact', href: '/contact' },
+  ];
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const onUpdateActiveLink = (link) => {
-    setActiveLink(link);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <Navbar
-      expand="lg"
-      className={`navbar-custom ${scrolled ? "scrolled" : ""}`}
-    >
-      <Container fluid>
-        <Navbar.Brand>
-          <img
-            alt=""
-            src="https://via.placeholder.com/40/007bff/fff?text=Logo"
-            width="40"
-            height="40"
-            className="d-inline-block align-top"
-          />{" "}
-          Official Portfolio
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav">
-          <span className="navbar-toggler-icon"></span>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link
-              href="#"
-              className={
-                activeLink === "home" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("home")}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              href="#about"
-              className={
-                activeLink === "about" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("about")}
-            >
-              About
-            </Nav.Link>
-            <Nav.Link
-              href="#skills"
-              className={
-                activeLink === "skills" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("skills")}
-            >
-              Skills
-            </Nav.Link>
-            <Nav.Link
-              href="#projects"
-              className={
-                activeLink === "projects" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("projects")}
-            >
-              Projects
-            </Nav.Link>
-          </Nav>
-          <Link to="/contact" className="me-4">
-          <Button
-            variant="primary"
-            className="btn"
-            onClick={() => console.log("connect")}
-          >
-            <span>Let's Connect</span>
-          </Button>
-          </Link>
-          <Link to="/signup" className="me-4">
-              <Button
-                variant="primary"
-                className="btn"
-                onClick={() => console.log("sign up")}
-              >
-                <span>Sign Up</span>
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button
-                variant="primary"
-                className="btn"
-                onClick={() => console.log("log in")}
-              >
-                <span>Log In</span>
-              </Button>
-            </Link>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
+    <nav className="fixed w-full z-50">
+      {/* Backdrop Blur */}
+      <div className="absolute inset-0 backdrop-blur-md"></div>
 
-export default MyNavbar;
+      {/* Main Navbar Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex-shrink-0"
+          >
+            <a href="/" className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+              Leslie.dev
+            </a>
+          </motion.div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {menuItems.map((item, index) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="text-white hover:text-blue-500 transition-colors"
+                whileHover={{ y: -2 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {item.name}
+              </motion.a>
+            ))}
+            {/* <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium"
+            >
+              Let us Talk
+            </motion.button> */}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            className="md:hidden text-gray-300 p-2"
+            onClick={toggleMenu}
+          >
+            <div className="w-6 h-5 relative flex flex-col justify-between">
+              <motion.span
+                animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                className="w-full h-0.5 bg-current transform origin-left transition-transform"
+              ></motion.span>
+              <motion.span
+                animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="w-full h-0.5 bg-current"
+              ></motion.span>
+              <motion.span
+                animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                className="w-full h-0.5 bg-current transform origin-left transition-transform"
+              ></motion.span>
+            </div>
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="relative md:hidden"
+          >
+            <div className="bg-gray-900/90 backdrop-blur-lg">
+              <div className="max-w-7xl mx-auto px-4 py-4">
+                <div className="flex flex-col space-y-4">
+                  {menuItems.map((item, index) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      className="text-gray-300 hover:text-white py-2 transition-colors"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Let us Talk
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+export default Navbar;

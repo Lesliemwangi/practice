@@ -41,7 +41,14 @@ const Home = () => {
                 <h3 className="text-2xl md:text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
                   From Blueprints to Code: Crafting Seamless Digital Experiences
                 </h3>
-                I started my journey in architecture, mastering the art of design, structure and functionality in physical spaces. Over the past five years, I’ve transitioned into full-stack development, blending my architectural precision with technical expertise to build intuitive, high-performing digital solutions. Whether designing seamless user interfaces or architecting robust back-end systems, I bring ideas to life with a balance of creativity and logic.
+                I started my journey in architecture, mastering the art of
+                design, structure and functionality in physical spaces. Over the
+                past five years, I’ve transitioned into full-stack development,
+                blending my architectural precision with technical expertise to
+                build intuitive, high-performing digital solutions. Whether
+                designing seamless user interfaces or architecting robust
+                back-end systems, I bring ideas to life with a balance of
+                creativity and logic.
               </p>
             </div>
 
@@ -50,7 +57,7 @@ const Home = () => {
               <img
                 src={mee}
                 alt="Profile"
-                className="w-60 h-50 rounded-full border-4 border-blue-400 shadow-lg"
+                className="w-60 h-50 rounded-full border-4 border-blue-400 shadow-lg mt-"
               />
             </div>
           </div>
@@ -83,7 +90,8 @@ const Home = () => {
                 Architecture Design
               </h3>
               <p className="text-gray-300 mt-4 leading-relaxed">
-                Creating modern and functional spaces with innovative designs that push boundaries.
+                Creating modern and functional spaces with innovative designs
+                that push boundaries.
               </p>
               <button
                 onClick={() => navigate("/projects")}
@@ -109,7 +117,8 @@ const Home = () => {
                 Software Development
               </h3>
               <p className="text-gray-300 mt-4 leading-relaxed">
-                Building cutting-edge web applications that enhance user experiences.
+                Building cutting-edge web applications that enhance user
+                experiences.
               </p>
               <button
                 onClick={() => navigate("/projects")}
@@ -155,7 +164,8 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="text-gray-300 italic">
-                  Leslie transformed our vision into reality. The attention to detail and professional approach made all the difference.
+                  Leslie transformed our vision into reality. The attention to
+                  detail and professional approach made all the difference.
                 </p>
               </motion.div>
             ))}

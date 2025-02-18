@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import drawing from "../assets/drawing 1.jpg";
+import thumb from "../assets/thumb1.png";
+import weather from "../assets/weather.jpg";
 
 const projects = [
   {
@@ -15,18 +17,20 @@ const projects = [
     description: "A sustainable home with solar panels and an organic garden.",
     image: drawing,
   },
-//   {
-//     id: 3,
-//     title: "Luxury Office Space",
-//     description: "An elegant corporate space with contemporary architecture.",
-//     image: drawing,
-//   },
-//   {
-//     id: 4,
-//     title: "Tech Startup Hub",
-//     description: "A dynamic workspace designed for innovation and creativity.",
-//     image: drawing,
-//   },
+  {
+    id: 3,
+    title: "Haki App",
+    description: "A revolutionary platform that seamlessly connects motorbike riders with legal professionals, ensuring quick and efficient access to legal assistance when needed.",
+    image: thumb,
+    link: "https://main--hakiproject.netlify.app/",
+  },
+  {
+  id: 4,
+  title: "Weather App",
+  description: "A user-friendly weather app that provides accurate and up-to-date weather forecasts for any location",
+  image: weather,
+  link: "https://weather-app-kappa-hazel.vercel.app/",
+  },
 ];
 
 const Projects = () => {
@@ -64,11 +68,31 @@ const Projects = () => {
               whileHover={{ scale: 1.02, rotate: -1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="rounded-lg w-full h- object-cover"
-              />
+              {/* <div className="absolute -top-6 left-6 bg-blue-500 rounded-xl p-3 shadow-lg text-white font-bold">
+                🏛️
+              </div> */}
+
+              {/* Clickable Image if a Link Exists */}
+              {project.link ? (
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="rounded-lg w-full object-cover mt-6"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </a>
+              ) : (
+                <motion.img
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded-lg w-full object-cover mt-6"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+
               <h3 className="text-2xl font-semibold text-blue-300 mt-4">
                 {project.title}
               </h3>

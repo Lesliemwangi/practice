@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "/home/lesliemwangi/development/practice/src/assets/Leslie Ombre Logo.jpg"; // Update with the correct logo path
+import logo from "/home/lesliemwangi/development/practice/src/assets/Leslieombrelogo.jpg"; // Update with the correct logo path
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

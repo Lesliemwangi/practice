@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import drawing from "../assets/drawing 1.jpg";
+import drawing3 from "../assets/drawing 3.jpg";
 import thumb from "../assets/thumb1.png";
 import weather from "../assets/weather.jpg";
 
@@ -14,8 +15,8 @@ const projects = [
   {
     id: 2,
     title: "Eco-Friendly House",
-    description: "A sustainable home with solar panels and an organic garden.",
-    image: drawing,
+    description: "A modern, sustainable home designed with energy efficiency and environmental consciousness in mind. Equipped with solar panels for renewable energy, rainwater harvesting systems, and an organic garden for self-sufficiency. The house features passive cooling, natural lighting, and eco-friendly materials to minimize its carbon footprint while maximizing comfort and sustainability.",
+    image: drawing3,
   },
   {
     id: 3,

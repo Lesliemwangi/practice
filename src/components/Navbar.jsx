@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "/home/lesliemwangi/development/practice/src/assets/Leslie Ombre Logo.jpg"; // Update with the correct logo path
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +8,6 @@ const Navbar = () => {
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    // { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
     { name: "Contact", href: "/contact" },
   ];
@@ -17,15 +17,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50">
+    <nav className="fixed w-full z-50 bg-transparent">
       {/* Backdrop Blur */}
       <div className="absolute inset-0 backdrop-blur-md"></div>
 
       {/* Main Navbar Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} className="flex-shrink-0">
+          {/* Logo and Brand Name */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center space-x-2"
+          >
+            <img src={logo} alt="Logo" className="h-10 w-10 object-contain" />
             <a
               href="/"
               className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text"
@@ -49,13 +53,6 @@ const Navbar = () => {
                 {item.name}
               </motion.a>
             ))}
-            {/* <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium"
-            >
-              Let us Talk
-            </motion.button> */}
           </div>
 
           {/* Mobile Menu Button */}

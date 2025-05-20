@@ -1,3 +1,16 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    /* background: linear-gradient(to bottom, #1a202c, #1e3a8a, #1a202c); */
+
+    /* background: linear-gradient(to bottom,  from-gray-900 via-blue-900 to-gray-900); */
+    /* url("https://media.istockphoto.com/id/907386254/vector/hand-touch-selection-touch-the-future-abstract-technology-innovation-concept.jpg?s=612x612&w=0&k=20&c=B81HZzMD5xmX8LMpNr1OBzxLLgB7fraOTL6a_7cjpGI="); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    /* #3b82f6 */
+  }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -91,13 +91,13 @@ const About = () => {
   user-focused digital experiences. My passion lies in blending creativity with technology, crafting intuitive and visually compelling applications. Whether designing structures or writing code, I thrive on innovation and continuous learning to create solutions that enhance functionality, efficiency, and user engagement.
 </p>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               View Portfolio
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </div>
 

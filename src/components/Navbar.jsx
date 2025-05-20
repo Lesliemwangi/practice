@@ -104,13 +104,6 @@ const Navbar = () => {
                       {item.name}
                     </motion.a>
                   ))}
-                  <motion.button
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Let us Talk
-                  </motion.button>
                 </div>
               </div>
             </div>

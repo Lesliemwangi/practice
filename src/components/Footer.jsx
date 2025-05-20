@@ -1,3 +1,4 @@
+// Footer.js
 import React from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
